@@ -1,0 +1,92 @@
+:root{
+  --hourHand: hsl(0, 0%, 0%);
+  --minuteHand: hsl(0, 0%, 0%);
+  --secondHand: hsl(360, 100%, 55%);
+  --clock: hsl(0, 0%, 0%);
+  --bodyBackground: hsl(360, 100%, 100%);
+  
+  --hour: 0deg;
+  --minute: 0deg;
+  --second: 0deg;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+    --hourHand: hsl(0, 0%, 100%);
+    --minuteHand: hsl(0, 0%, 100%);
+    --secondHand: hsl(45, 100%, 55%);
+    --clock: hsl(0, 0%, 100%);
+    --bodyBackground: hsl(0, 0%, 0%);
+	}
+}
+
+body{
+  font-family: 'Overpass', sans-serif;
+  background: var(--bodyBackground);
+}
+
+.clockContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.clock{
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+svg{
+    overflow: visible;
+    fill: var(--clock);
+}
+
+.clockHand{
+  position: absolute;
+  transform-origin: bottom center;
+}
+
+.hourHand{
+  top: calc(50% - 140px);
+  left: calc(50% - 7.5px);
+  width: 15px;
+  height: 175px;
+  border-radius: 50px;
+  background: var(--hourHand);
+  transform: rotate(var(--hour));
+  transform-origin: 7.5px 140px;
+}
+
+.minHand{
+  top: calc(50% - 175px);
+  left: calc(50% - 7.5px);
+  width: 15px;
+  height: 200px;
+  border-radius: 50px;
+  background: var(--minuteHand);
+  transform: rotate(var(--minute));
+  transform-origin: 7.5px 175px;
+}
+
+.secHand{
+  top: calc(50% - 250px);
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 250px;
+  border-radius: 50px;
+  background: var(--secondHand);
+  transform: rotate(var(--second));
+  transform-origin: 5px 250px;
+}
+
+.clockCentre{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  border-radius: 50%;
+  background: var(--secondHand);
+}
